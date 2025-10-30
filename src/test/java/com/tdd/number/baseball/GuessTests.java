@@ -18,8 +18,6 @@ public class GuessTests {
         this.baseballService = baseballService;
     }
 
-    @Test public void contextLoads() {}
-
     @Test
     public void test_guess() {
         Game game = baseballService.createGame("123");

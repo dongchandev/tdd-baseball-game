@@ -16,8 +16,6 @@ public class GameTests {
         this.baseballService = baseballService;
     }
 
-    @Test public void contextLoads() {}
-
     @Test void should_create_game_with_valid_number() {
         Game game = baseballService.createGame("012");
         assertThat(game).as("game not created").isNotNull();
