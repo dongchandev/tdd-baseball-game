@@ -19,15 +19,19 @@ public class GameNumber {
         this.value = value;
     }
 
-    public boolean contains(char c) {
-        return value.indexOf(c) >= 0;
-    }
+    public int length() { return value.length(); }
+    public char charAt(int i) { return value.charAt(i); }
+    public boolean contains(char c) { return value.indexOf(c) >= 0; }
 
-    public char charAt(int i) {
-        return value.charAt(i);
-    }
+    public Score compareWith(GameNumber other) {
+        Long strikes = 0L;
+        Long balls = 0L;
 
-    public int length() {
-        return value.length();
+        for (int i = 0; i < other.length(); i++) {
+            char c = other.charAt(i);
+            if (this.charAt(i) == c) strikes++;
+            else if (this.contains(c)) balls++;
+        }
+        return new Score(strikes, balls);
     }
 }
